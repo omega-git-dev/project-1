@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    box-sizing: border-box;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    height: 50px;
+}
+ul{
+    display: flex;
+    list-style: none ;
+    gap: 20px;
+}
+ul li a{
+    text-decoration: none;
+    color: white;
+}
+.active{
+    color: red;
+}
