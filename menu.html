@@ -3,79 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foodie Haven - Menu</title>
+    <title>BlinkBite - Menu</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header></header>
     <main>
-        <section class="hero">
-            <h1>Our Delicious Menu</h1>
-            <p>Fresh, quality ingredients for every meal</p>
-        </section>
-        <section class="menu-section">
-            <h2>Appetizers</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Bruschetta" alt="Bruschetta">
-                    <h3>Bruschetta</h3>
-                    <p>Toasted bread topped with tomatoes, garlic, and basil</p>
-                    <span class="price">$8.99</span>
-                    <button class="add-to-cart" data-item="Bruschetta" data-price="8.99">Add to Cart</button>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Calamari" alt="Calamari">
-                    <h3>Fried Calamari</h3>
-                    <p>Crispy squid rings with marinara sauce</p>
-                    <span class="price">$12.99</span>
-                    <button class="add-to-cart" data-item="Fried Calamari" data-price="12.99">Add to Cart</button>
-                </div>
+        <section class="hero menu-hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Shop by taste</span>
+                <h1>Discover millions of dishes, groceries and flavours</h1>
+                <p>Search or browse by category to find your next favourite meal.</p>
             </div>
         </section>
-        <section class="menu-section">
-            <h2>Main Courses</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Grilled+Salmon" alt="Grilled Salmon">
-                    <h3>Grilled Salmon</h3>
-                    <p>Fresh Atlantic salmon with lemon herb butter</p>
-                    <span class="price">$24.99</span>
-                    <button class="add-to-cart" data-item="Grilled Salmon" data-price="24.99">Add to Cart</button>
+        <section class="menu-filters">
+            <div class="filter-row">
+                <div class="search-bar compact">
+                    <input id="menu-search" type="search" placeholder="Search meals, snacks, beverages..." aria-label="Search menu">
+                    <button id="menu-search-btn" type="button">Search</button>
                 </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Beef+Burger" alt="Beef Burger">
-                    <h3>Classic Beef Burger</h3>
-                    <p>Juicy beef patty with lettuce, tomato, and our special sauce</p>
-                    <span class="price">$16.99</span>
-                    <button class="add-to-cart" data-item="Classic Beef Burger" data-price="16.99">Add to Cart</button>
-                </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Pasta+Carbonara" alt="Pasta Carbonara">
-                    <h3>Pasta Carbonara</h3>
-                    <p>Creamy pasta with pancetta, eggs, and Parmesan</p>
-                    <span class="price">$18.99</span>
-                    <button class="add-to-cart" data-item="Pasta Carbonara" data-price="18.99">Add to Cart</button>
+                <div class="filter-summary">
+                    <span id="results-count">Showing 0 items</span>
                 </div>
             </div>
+            <div id="menu-category-list" class="category-chips"></div>
         </section>
-        <section class="menu-section">
-            <h2>Desserts</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Tiramisu" alt="Tiramisu">
-                    <h3>Tiramisu</h3>
-                    <p>Classic Italian dessert with coffee-soaked ladyfingers</p>
-                    <span class="price">$7.99</span>
-                    <button class="add-to-cart" data-item="Tiramisu" data-price="7.99">Add to Cart</button>
+        <section class="menu-layout">
+            <aside class="sidebar">
+                <div class="sidebar-card flash-deals-card">
+                    <h2>Flash Deals</h2>
+                    <div id="flash-deals-list" class="flash-deals-list"></div>
                 </div>
-                <div class="menu-item">
-                    <img src="https://via.placeholder.com/300x200?text=Cheesecake" alt="Cheesecake">
-                    <h3>New York Cheesecake</h3>
-                    <p>Rich and creamy cheesecake with berry compote</p>
-                    <span class="price">$6.99</span>
-                    <button class="add-to-cart" data-item="New York Cheesecake" data-price="6.99">Add to Cart</button>
+                <div class="sidebar-card quick-order-card">
+                    <h2>Quick Order</h2>
+                    <div id="quick-order-list" class="quick-order-list"></div>
                 </div>
-            </div>
+            </aside>
+            <section class="menu-section" id="menu-list">
+                <div id="menu-grid" class="menu-grid"></div>
+                <div class="load-more-wrap">
+                    <button id="load-more-btn" class="load-more-btn">Load more items</button>
+                </div>
+            </section>
         </section>
     </main>
     <script src="script.js"></script>

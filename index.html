@@ -3,40 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foodie Haven - Online Food Store</title>
+    <title>BlinkBite - Rapid Food & Grocery Delivery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header id="header">
-       
-    </header>
+    <header id="header"></header>
     <main>
-        <section class="hero">
-            <h1>Welcome to Foodie Haven</h1>
-            <p>Delicious food delivered to your doorstep</p>
-            <a href="menu.html" class="cta-button">Order Now</a>
+        <section class="hero home-hero">
+            <div class="hero-copy">
+                <span class="eyebrow">BlinkBite • 100,000+ items delivered fast</span>
+                <h1>Fresh meals, groceries & snacks in minutes</h1>
+                <p>Browse the largest catalog of premium food, enjoy smart recommendations, and get your order delivered in under 30 minutes.</p>
+                <div class="hero-actions">
+                    <a href="menu.html" class="cta-button">Order Now</a>
+                    <a href="menu.html#menu-list" class="secondary-button">Browse Menu</a>
+                </div>
+                <div class="search-bar">
+                    <input id="hero-search" type="search" placeholder="Search for biryani, coffee, veggies..." aria-label="Search for food">
+                    <button id="hero-search-btn" type="button">Search</button>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <strong>30 min</strong>
+                        <span>average delivery</span>
+                    </div>
+                    <div>
+                        <strong>4.9/5</strong>
+                        <span>customer rating</span>
+                    </div>
+                    <div>
+                        <strong>100K+</strong>
+                        <span>food items</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=950&q=80" alt="Fresh food delivery" loading="lazy">
+            </div>
+        </section>
+        <section class="top-categories">
+            <h2>Top categories</h2>
+            <div id="category-grid" class="category-grid"></div>
         </section>
         <section class="featured-products">
-            <h2>Featured Dishes</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200?text=Featured+Dish+1" alt="Featured Dish 1">
-                    <h3>Special Pasta</h3>
-                    <p>Our chef's special pasta dish</p>
-                    <span class="price">$19.99</span>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200?text=Featured+Dish+2" alt="Featured Dish 2">
-                    <h3>Gourmet Burger</h3>
-                    <p>Premium ingredients in every bite</p>
-                    <span class="price">$15.99</span>
-                </div>
-                <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200?text=Featured+Dish+3" alt="Featured Dish 3">
-                    <h3>Fresh Salad</h3>
-                    <p>Healthy and refreshing option</p>
-                    <span class="price">$12.99</span>
-                </div>
+            <h2>Popular picks</h2>
+            <div id="featured-grid" class="product-grid"></div>
+        </section>
+        <section class="highlights">
+            <div class="highlight-card">
+                <h3>Wide selection</h3>
+                <p>From comfort food to gourmet meals, the largest food catalog in one place.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>Fast delivery</h3>
+                <p>Orders prepared and dispatched immediately to reach you ultra fast.</p>
+            </div>
+            <div class="highlight-card">
+                <h3>Verified quality</h3>
+                <p>All items are shown with real photography and trusted partner kitchens.</p>
             </div>
         </section>
     </main>
