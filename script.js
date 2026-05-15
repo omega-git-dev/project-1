@@ -335,6 +335,26 @@ function applyFilters() {
     displayMenuItems()
 }
 
+function initScrollAnimations() {
+    const revealTargets = document.querySelectorAll('section, .category-card, .product-card, .menu-item, .flash-deal-card, .quick-order-chip, .highlight-card')
+    if (revealTargets.length === 0) return
+
+    revealTargets.forEach(el => el.classList.add('section-reveal'))
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return
+            entry.target.classList.add('visible')
+            obs.unobserve(entry.target)
+        })
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -10% 0px',
+    })
+
+    revealTargets.forEach(el => observer.observe(el))
+}
+
 function initMenuPage() {
     const searchInput = document.getElementById('menu-search')
     const searchButton = document.getElementById('menu-search-btn')
@@ -400,6 +420,7 @@ function initPage() {
     renderCategories()
     renderFlashDeals()
     renderQuickOrder()
+    initScrollAnimations()
     initHeroSearch()
     initMenuPage()
 
