@@ -310,14 +310,6 @@ function displayMenuItems() {
         menuGrid.innerHTML = ''
     }
     menuGrid.insertAdjacentHTML('beforeend', nextItems.map(createMenuCard).join(''))
-    const newItems = menuGrid.querySelectorAll('.menu-item:not(.section-reveal)')
-    newItems.forEach(el => {
-        el.classList.add('section-reveal')
-        el.classList.add('visible')
-        if (scrollObserver) {
-            scrollObserver.observe(el)
-        }
-    })
     currentIndex += nextItems.length
     loadMoreBtn.style.display = currentIndex < filteredItems.length ? 'inline-flex' : 'none'
     updateResultsCount()
@@ -341,42 +333,6 @@ function addCartButtonHandler() {
 function applyFilters() {
     buildFilter()
     displayMenuItems()
-}
-
-let scrollObserver = null
-
-function initScrollAnimations() {
-    const revealTargets = document.querySelectorAll('section, .category-card, .product-card, .flash-deal-card, .quick-order-chip, .highlight-card')
-    if (revealTargets.length === 0) return
-
-    revealTargets.forEach(el => el.classList.add('section-reveal'))
-
-    if (!('IntersectionObserver' in window)) {
-        revealTargets.forEach(el => el.classList.add('visible'))
-        return
-    }
-
-    scrollObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return
-            entry.target.classList.add('visible')
-            obs.unobserve(entry.target)
-        })
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -10% 0px',
-    })
-
-    revealTargets.forEach(el => scrollObserver.observe(el))
-}
-
-function observeNewRevealItems() {
-    if (!scrollObserver) return
-    document.querySelectorAll('.menu-item.section-reveal').forEach(el => {
-        if (!el.classList.contains('visible')) {
-            scrollObserver.observe(el)
-        }
-    })
 }
 
 function initMenuPage() {
@@ -446,7 +402,6 @@ function initPage() {
     renderQuickOrder()
     initHeroSearch()
     initMenuPage()
-    initScrollAnimations()
 
     const contactForm = document.getElementById('contact-form')
     if (contactForm) {
