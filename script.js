@@ -187,7 +187,7 @@ function renderFeatured() {
     if (!featuredGrid) return
     featuredGrid.innerHTML = featuredItems.map(item => `
         <div class="product-card">
-            <img src="${item.image}" alt="${item.name}" loading="lazy">
+            <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PC9zdmc+'">
             <div class="card-content">
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>
@@ -202,7 +202,7 @@ function renderCategories() {
     const categoryList = document.getElementById('menu-category-list')
     const categoryMarkup = menuCategories.map(category => `
         <button class="category-card" data-category="${category.name}">
-            <img src="${category.image}" alt="${category.name}">
+            <img src="${category.image}" alt="${category.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHJ4PSIyMiIgZmlsbD0iI2RkZCIvPjwvc3ZnPg=='">
             <h3>${category.name}</h3>
         </button>
     `).join('')
@@ -231,7 +231,7 @@ function renderFlashDeals() {
     if (!flashDealsContainer) return
     flashDealsContainer.innerHTML = flashDealItems.map(item => `
         <div class="flash-deal-card">
-            <img src="${item.image}" alt="${item.name}" loading="lazy">
+            <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHZpZXdCb3g9IjAgMCA3MiA3MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNzIiIGhlaWdodD0iNzIiIHJ4PSIxOCIgZmlsbD0iI2RkZCIvPjwvc3ZnPg=='">
             <div class="flash-deal-meta">
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>
@@ -287,7 +287,7 @@ function updateResultsCount() {
 function createMenuCard(item) {
     return `
         <div class="menu-item">
-            <img src="${item.image}" alt="${item.name}" loading="lazy">
+            <img src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PC9zdmc+'">
             <div class="card-content">
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>
@@ -313,10 +313,9 @@ function displayMenuItems() {
     const newItems = menuGrid.querySelectorAll('.menu-item:not(.section-reveal)')
     newItems.forEach(el => {
         el.classList.add('section-reveal')
+        el.classList.add('visible')
         if (scrollObserver) {
             scrollObserver.observe(el)
-        } else {
-            el.classList.add('visible')
         }
     })
     currentIndex += nextItems.length
