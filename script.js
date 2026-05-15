@@ -346,7 +346,7 @@ function applyFilters() {
 let scrollObserver = null
 
 function initScrollAnimations() {
-    const revealTargets = document.querySelectorAll('section, .category-card, .product-card, .menu-item, .flash-deal-card, .quick-order-chip, .highlight-card')
+    const revealTargets = document.querySelectorAll('section, .category-card, .product-card, .flash-deal-card, .quick-order-chip, .highlight-card')
     if (revealTargets.length === 0) return
 
     revealTargets.forEach(el => el.classList.add('section-reveal'))
